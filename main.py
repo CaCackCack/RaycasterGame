@@ -19,4 +19,13 @@ SIZE = (WIDTH, HEIGHT)
 # We start with a 2D base, the 3D comes with a little math
 
 screen = pygame.display.set_mode(SIZE)
+clock = pygame.time.Clock()
 
+while True:
+  for event in pygame.event.get():
+    if (event.type == pygame.QUIT):
+      sys.exit()
+      quit()
+  
+  pygame.display.flip()
+  clock.tick(40)
