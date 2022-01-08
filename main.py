@@ -14,6 +14,12 @@ pygame.init()
 WIDTH, HEIGHT = 800, 600
 SIZE = (WIDTH, HEIGHT)
 
+polygon_points = [(400, 300), (385, 340), (415, 340)]
+### Important Functions
+
+
+
+
 ## Main code
 
 # We start with a 2D base, the 3D comes with a little math
@@ -27,5 +33,7 @@ while True:
       sys.exit()
       quit()
   
+  # Test drawings, remove later
+  pygame.draw.polygon(screen, (255, 255, 255), polygon_points)
   pygame.display.flip()
   clock.tick(40)
