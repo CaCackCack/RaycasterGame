@@ -13,17 +13,17 @@ def line_midpoint(first_point, second_point):
 
 
 def find_equation(coord_pair, slope, array_form):
-    intercept = coord_pair[1] - (coord_pair[0] * slope)
+  intercept = coord_pair[1] - (coord_pair[0] * slope)
 
-    # Array form useful for conversion into standard form
-    if (array_form == True):
-      return [slope, 1, intercept]
+  # Array form useful for conversion into standard form
+  if (array_form == True):
+    return [slope, 1, intercept]
+  else:
+    if (intercept >= 0):
+      print("y = {0}x + {1}".format(slope, intercept))
+      return
     else:
-      if (intercept >= 0):
-        print("y = {0}x + {1}".format(slope, intercept))
-        return
-      else:
-        print("y = {0}x - {1}".format(slope, intercept))
+      print("y = {0}x - {1}".format(slope, intercept))
 
 
 def find_perpendicular(slope): 
@@ -44,13 +44,11 @@ def find_perp_equation(x, y, m, array_form):
     if (m >= 0):
       print("{0}y = {1}x + {2}".format(y, find_perpendicular(x), m))
     else:
-      print("{0}y = {1}x - {2}".format(y, find_perpendicular(x), m)
+      print("{0}y = {1}x - {2}".format(y, find_perpendicular(x), m))
 
 
-
-def find_pytha(a, b):
+def find_hyp(a, b):
   return math.sqrt((a**2) + (b**2)) 
-
 
 def find_tri_area(a, b, c): 
   # finds area of triangle using Heron's formula
@@ -71,6 +69,6 @@ def find_point_section(first_point, second_point, ratio):
   return ( first_numerator/(ratio[0]+ratio[1]), second_numerator/(ratio[0] + ratio[1]))
 
 
-def slope_intercept_to_standard(x, y, b):
+ def slope_intercept_to_standard(x, y, b):
   # x and y are the coeffients of the said variables, for example 5y = 3x + 8 would be inputted as (3, 5, 8) 
   return [x, -y, -b]

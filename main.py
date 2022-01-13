@@ -6,6 +6,7 @@
 ### DEPENDENCIES ###
 import pygame
 import sys, math
+from quick_geometry_formulas import *
 
 pygame.init()
 
@@ -14,9 +15,9 @@ pygame.init()
 WIDTH, HEIGHT = 800, 600
 SIZE = (WIDTH, HEIGHT)
 
-polygon_points = [(400, 300), (385, 340), (415, 340)]
+# order of points are tip, left edge, right edge
+camera_points = [(400, 300), (385, 340), (415, 340)]
 ### Important Functions
-
 
 
 
