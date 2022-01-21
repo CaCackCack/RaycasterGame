@@ -1,11 +1,22 @@
 import math
+import sympy as sym
+
+# shape is in form of list of tuples e.g [(1,1), (2,1), (1,0), (2,0)]
+# angle is in degrees
+# def rotate_shape(shape, angle): 
+
 
 def line_distance(first_point, second_point):
   return math.sqrt( (second_point[0] - first_point[0]) ** 2 + (second_point[1] - first_point[1]) ** 2) 
 
-
+# undefined is represented by None in this program
 def line_slope(first_point, second_point):
-  return (second_point[1] - first_point[1])/(second_point[0] - first_point[0])
+  if (second_point[0] - first_point[0] == 0):
+    return None
+  elif (second_point[1] - first_point[1] == 0):
+    return 0
+  else:
+    return (second_point[1] - first_point[1])/(second_point[0] - first_point[0])
 
 
 def line_midpoint(first_point, second_point):
@@ -13,11 +24,28 @@ def line_midpoint(first_point, second_point):
 
 
 def find_equation(coord_pair, slope, array_form):
-  intercept = coord_pair[1] - (coord_pair[0] * slope)
+
+
+  if (slope == 0):
+    intercept = coord_pair[1]
+    print("y = {0}".format(intercept))
+    return
+  elif (slope == None):
+    intercept = coord_pair[0]
+    print("x = {0}".format(intercept))
+    return
+  else:
+    intercept = coord_pair[1] - (coord_pair[0] * slope)
+
 
   # Array form useful for conversion into standard form
   if (array_form == True):
-    return [slope, 1, intercept]
+    if (slope == 0):
+      return [0, 1, intercept]
+    elif (slope == None):
+      return [1, 0, intercept]
+    else:
+      return [slope, 1, intercept]
   else:
     if (intercept >= 0):
       print("y = {0}x + {1}".format(slope, intercept))
@@ -26,8 +54,13 @@ def find_equation(coord_pair, slope, array_form):
       print("y = {0}x - {1}".format(slope, intercept))
 
 
-def find_perpendicular(slope): 
-  return -(1/slope)
+def find_perpendicular(slope):
+  if (slope == 0):
+    return None
+  elif (slope == None):
+    return 0 
+  else:
+    return -(1/slope)
 
 def find_perp_bisector(first_point, second_point):
   # This function finds the perpendicular bisector between two points, using funcs made previously
@@ -48,7 +81,7 @@ def find_perp_equation(x, y, m, array_form):
 
 
 def find_hyp(a, b):
-  return math.sqrt((a**2) + (b**2)) 
+ return math.sqrt((a**2) + (b**2)) 
 
 def find_tri_area(a, b, c): 
   # finds area of triangle using Heron's formula
@@ -69,6 +102,14 @@ def find_point_section(first_point, second_point, ratio):
   return ( first_numerator/(ratio[0]+ratio[1]), second_numerator/(ratio[0] + ratio[1]))
 
 
- def slope_intercept_to_standard(x, y, b):
+def slope_intercept_to_standard(x, y, b):
   # x and y are the coeffients of the said variables, for example 5y = 3x + 8 would be inputted as (3, 5, 8) 
-  return [x, -y, -b]
+  if (x == 0):
+    return [0, 1, b]
+  elif (y == 0):
+    return [x, 0, b]
+  else:
+    return [x, -y, -b]
+
+
+
