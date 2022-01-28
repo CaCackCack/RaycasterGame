@@ -24,29 +24,31 @@ def line_midpoint(first_point, second_point):
 
 
 def find_equation(coord_pair, slope, array_form):
-
-
-  if (slope == 0):
-    intercept = coord_pair[1]
-    print("y = {0}".format(intercept))
-    return
-  elif (slope == None):
-    intercept = coord_pair[0]
-    print("x = {0}".format(intercept))
-    return
-  else:
-    intercept = coord_pair[1] - (coord_pair[0] * slope)
-
-
   # Array form useful for conversion into standard form
   if (array_form == True):
     if (slope == 0):
+      intercept = coord_pair[1]
       return [0, 1, intercept]
     elif (slope == None):
+      intercept = coord_pair[0]
       return [1, 0, intercept]
     else:
+      intercept = coord_pair[1] - (coord_pair[0] * slope)
       return [slope, 1, intercept]
   else:
+    
+    
+    if (slope == 0):
+      intercept = coord_pair[1]
+      print("y = {0}".format(intercept))
+      return
+    elif (slope == None):
+      intercept = coord_pair[0]
+      print("x = {0}".format(intercept))
+      return
+    else:
+       intercept = coord_pair[1] - (coord_pair[0] * slope)
+
     if (intercept >= 0):
       print("y = {0}x + {1}".format(slope, intercept))
       return
@@ -109,7 +111,5 @@ def slope_intercept_to_standard(x, y, b):
   elif (y == 0):
     return [x, 0, b]
   else:
-    return [x, -y, -b]
-
-
+    return [x, y, -b]
 
