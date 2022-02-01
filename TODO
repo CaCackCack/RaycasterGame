@@ -1,0 +1,7 @@
+Feb 1, 2022:
+  * Rewrite rotate_player(use rotation matrix instead of previous write-up method) https://en.wikipedia.org/wiki/Rotation_matrix
+  * Turn the Player into a class(including points and angle for now)
+  
+  A proposed idea from a friend was to include the points it starts with as a base, and then keep track the position and angle instead.
+  Sounds cleaner for debugging purposes(e.g, checking if the triangle is still itself by comparing the area/sides/whatever
+  of one triangle form to the base triangle), so I'll try it.
